@@ -28,8 +28,8 @@ def compare(params)
         comparisons << true : comparisons << false :
         # if not, does the parameter key exist in the data object?
         # and does the matching data key value string include the parameter value substring?
-        data.has_key?(key) && data[key].include?(val) ? 
-        comparisons << true : comparisons << false
+        data.has_key?(key) ? data[key].include?(val) ? 
+        comparisons << true : comparisons << false : nil
   end
   comparisons.all? ? true : false # if all comparisons are true, return true else false
 end
