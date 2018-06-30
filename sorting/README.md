@@ -1,3 +1,4 @@
+```javascript
 function bubblesort with one parameter array "arr" {
     for (declare variable "i" is equal to the length of arr minus 1; while i is greater than or equal to 0; decrement i by 1) {
         for (declare variable "j" is equal to 1; while j is less than or equal to i; increment j by 1) {
@@ -12,3 +13,4 @@ function bubblesort with one parameter array "arr" {
     
     return "arr";
 }
+```
