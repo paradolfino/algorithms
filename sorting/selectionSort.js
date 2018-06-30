@@ -4,7 +4,7 @@ function selectionSort(arr) {
     for (var i = 0; i < len; i++) {
         minIdx = i;
         for (var j = i+1; j < len; j++) {
-            if (arr[j] > arr[minIdx]) {
+            if (arr[j] < arr[minIdx]) {
                 minIdx = j;
             }
         }
@@ -15,3 +15,4 @@ function selectionSort(arr) {
     }
     return arr;
 }
+
