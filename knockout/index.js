@@ -5,15 +5,14 @@ UserList.UserModel = function (data) {
     self.UserID = data.id;
     self.Name = data.name;
     self.Username = data.username;
-    self.email = data.email;
-    self.phone = data.phone;
+    self.Email = data.email;
+    self.Phone = data.phone;
 }
 
 UserList.UserListViewModel = function () {
     var self = this;
     self.Users = ko.observableArray([]);
     self.LoadUsers = function () {
-        console.log("load users");
         $.ajax({
             url: "https://jsonplaceholder.typicode.com/users",
             type: "GET",
@@ -28,15 +27,20 @@ UserList.UserListViewModel = function () {
         var mappedUsers = [];
         for (let i = 0, len = Response.length; i < len; i++) {
             var item = new UserList.UserModel(Response[i]);
-            mappedUsers.push(item);
+            self.Users.push(item);
         }
-        self.Users(mappedUsers);
-        console.log(mappedUsers);
+        //self.Users(mappedUsers);
+        
     }
 
+    self.LoadUsers();
     
 }
 
-ko.applyBindings(new UserList.UserListViewModel());
-var Grid = new UserList.UserListViewModel();
-Grid.LoadUsers();
+ko.applyBindings(new UserList.UserListViewModel(), document.getElementById("grid"));
+
+//separate instance
+//var Grid = new UserList.UserListViewModel();
+//ko.applyBindings(Grid);
+//Grid.LoadUsers();
+//console.log(Grid.Users());
